@@ -7,7 +7,7 @@ namespace DemoApp1
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("Enter your name :");
+			Console.WriteLine("Enter your name:");
 			string name = Console.ReadLine();
 			Thread.Sleep(5000);
 			Console.WriteLine($"Hello {name}!");
