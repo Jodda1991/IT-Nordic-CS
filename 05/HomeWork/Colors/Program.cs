@@ -25,16 +25,17 @@ namespace Colors
 			var array = Enum.GetValues(typeof(colors));
 
 			Console.WriteLine(
-				"Список возможных цветов: {0}",
+				"All colors: {0}",
 				string.Join(' ', Enum.GetNames(typeof(colors))));
-			Console.WriteLine("Выберите цвета которые будут помещенны в избранную политру:");
+			Console.WriteLine("Choose colors as favorite:");
+			colors[] OtherColors = new colors[9];
 			colors[] colors = new colors[4];
 			for (int i = 0; i < 4; i++)
 			{
 				while (true)
 				{
 					object color;
-					Console.WriteLine("Выберите цвет:");
+					Console.WriteLine("Choose color:");
 					if (Enum.TryParse(typeof(colors), Console.ReadLine(), true, out color))
 					{
 						colors[i] = (colors)color;
@@ -42,9 +43,10 @@ namespace Colors
 					}
 					else 
 					{
-						Console.WriteLine("Ошибка");
+						Console.WriteLine("Error");
 					}
-					IEnumerable<colors> otherColors1 = colors.Except(Enum.);
+					//пока не нашел способ как отобразить цвета невошедшие в палитру
+					IEnumerable<colors> otherColors1 = colors.Except(OtherColors);
 					Console.WriteLine("Other colors:"+otherColors1);
 
 
