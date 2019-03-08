@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "figures", "figures\figures.csproj", "{D1CBB45C-6C37-454B-A609-48827244B33E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Colors", "..\Colors\Colors.csproj", "{D5B546A4-74DB-448D-B57B-3AF1160A2B33}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D1CBB45C-6C37-454B-A609-48827244B33E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1CBB45C-6C37-454B-A609-48827244B33E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1CBB45C-6C37-454B-A609-48827244B33E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1CBB45C-6C37-454B-A609-48827244B33E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5B546A4-74DB-448D-B57B-3AF1160A2B33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5B546A4-74DB-448D-B57B-3AF1160A2B33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5B546A4-74DB-448D-B57B-3AF1160A2B33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5B546A4-74DB-448D-B57B-3AF1160A2B33}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B0D81930-21D1-4852-9A3E-A6DC0CC5D329}
+	EndGlobalSection
+EndGlobal
