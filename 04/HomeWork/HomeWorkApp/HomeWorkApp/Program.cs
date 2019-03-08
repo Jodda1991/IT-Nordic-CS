@@ -28,20 +28,6 @@ namespace HomeWorkApp
 			Console.WriteLine($"You need:\n{juicepack20} 20l packs" +
 							  $"\n{juicepack5} 5l packs" +
 							  $"\n{juicepack1} 1L packs");
-			//Хотел сделать , чтобы в битах отображались использованные упаковки , но пока не придумал как можно использовать, отображается только pack1
-			if (juicepack1 > 0)
-			{
-				UsedPacks = UsedPacks ^ capacity.pack1;
-			}
-			else if (juicepack5>0)
-			{
-				UsedPacks = UsedPacks ^ capacity.pack5;
-			}
-			else if (juicepack20>0)
-			{
-				UsedPacks = UsedPacks ^ capacity.pack20;
-			}
-			Console.WriteLine(UsedPacks);
 		}
 	}
 }
