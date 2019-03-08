@@ -41,7 +41,7 @@ namespace figures
 				}
 				else
 				{
-					Console.WriteLine("You pressed a wrong number ");
+					Console.WriteLine("You pressed a wrong number!");
 				}
 			}
 			catch(FormatException)
