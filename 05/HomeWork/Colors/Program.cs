@@ -8,51 +8,58 @@ namespace Colors
 	class Program
 	{
 		[Flags]
-		enum colors
+		enum allcolors
 		{
-			Black,
-			Blue,
-			Cyan,
-			Grey,
-			Green,
-			Magenta,
-			Red,
-			White,
-			Yellow
+			Black=1,
+			Blue=2,
+			Cyan=4,
+			Grey=8,
+			Green=16,
+			Magenta=32,
+			Red=64,
+			White=128,
+			Yellow=256,
 		}
 		static void Main(string[] args)
 		{
-			var array = Enum.GetValues(typeof(colors));
+			var array = Enum.GetValues(typeof(allcolors));
+			allcolors ALL = allcolors.Black | allcolors.Blue | allcolors.Cyan
+				| allcolors.Grey | allcolors.Green | allcolors.Magenta
+				| allcolors.Red | allcolors.White | allcolors.Yellow;
+			var all = (allcolors.Black | allcolors.Blue | allcolors.Cyan
+				| allcolors.Grey | allcolors.Green | allcolors.Magenta
+				| allcolors.Red | allcolors.White | allcolors.Yellow).ToString();
 
 			Console.WriteLine(
 				"All colors: {0}",
-				string.Join(' ', Enum.GetNames(typeof(colors))));
+				string.Join(' ', Enum.GetNames(typeof(allcolors))));
 			Console.WriteLine("Choose colors as favorite:");
-			colors[] OtherColors = new colors[9];
-			colors[] colors = new colors[4];
+			allcolors[] favorite = new allcolors[4];
+
 			for (int i = 0; i < 4; i++)
 			{
+
 				while (true)
 				{
+
 					object color;
 					Console.WriteLine("Choose color:");
-					if (Enum.TryParse(typeof(colors), Console.ReadLine(), true, out color))
+					if (Enum.TryParse(typeof(allcolors), Console.ReadLine(), true, out color))
 					{
-						colors[i] = (colors)color;
+						favorite[i] = (allcolors)color;
+						var favor = favorite[i].ToString();
+						var otherColors = (ALL ^favorite[i]).ToString();
+						Console.WriteLine("You favorite color is :"+favor);
+						Console.WriteLine("Other colors are : "+otherColors);
+						break;
 
 					}
-					else 
+					else
 					{
 						Console.WriteLine("Error");
 					}
-					//пока не нашел способ как отобразить цвета невошедшие в палитру
-					IEnumerable<colors> otherColors1 = colors.Except(OtherColors);
-					Console.WriteLine("Other colors:"+otherColors1);
-
-
 				}
 			}
-			
-		}
+		}		
 	}
 }

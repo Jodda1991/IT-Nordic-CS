@@ -6,9 +6,9 @@ namespace figures
 	{
 		static void Main(string[] args)
 		{
+			
 			try
 			{
-
 				Console.WriteLine("Press a number of figure when 1 - circle , 2- equilateral triangle, 3- rectangle:");
 				double figure = double.Parse(Console.ReadLine());
 				if (figure == 1)
@@ -39,12 +39,16 @@ namespace figures
 					Console.WriteLine("Perimeter of the rectangle is: " + (perimeter = 2 * (height + width)) +
 						"\n Square of the rectangle is : " + (square = height * width));
 				}
-				else
+				else if (figure<=0)
 				{
-					Console.WriteLine("You pressed a wrong number!");
+					Console.WriteLine("You pressed a negative number or null!");
+				}
+				else if (figure>3)
+				{
+					Console.WriteLine("You pressed a value more then avaible!");
 				}
 			}
-			catch(FormatException)
+			catch (FormatException )
 			{
 				Console.WriteLine("Error! You pressed not a number!");
 			}
