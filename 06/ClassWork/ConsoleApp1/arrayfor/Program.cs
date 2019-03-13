@@ -21,7 +21,7 @@ namespace arrayfor
 				for(int a=0;a<marks[1].Length;a++)
 				{
 					
-					Console.WriteLine(i);
+					Console.WriteLine();
 				}
 			}
 		}

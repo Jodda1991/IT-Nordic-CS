@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassApp", "ClassApp\ClassApp.csproj", "{EE3E0FD6-9BFF-484E-8EF5-97C83A337B68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "String", "String\String.csproj", "{AF611B11-BF00-4C88-81BF-ED9FFFB7966E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "stringclasswork", "stringclasswork\stringclasswork.csproj", "{4893E5CA-7DDC-4B65-A76F-91796685DF27}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EE3E0FD6-9BFF-484E-8EF5-97C83A337B68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE3E0FD6-9BFF-484E-8EF5-97C83A337B68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE3E0FD6-9BFF-484E-8EF5-97C83A337B68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE3E0FD6-9BFF-484E-8EF5-97C83A337B68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF611B11-BF00-4C88-81BF-ED9FFFB7966E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF611B11-BF00-4C88-81BF-ED9FFFB7966E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF611B11-BF00-4C88-81BF-ED9FFFB7966E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF611B11-BF00-4C88-81BF-ED9FFFB7966E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4893E5CA-7DDC-4B65-A76F-91796685DF27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4893E5CA-7DDC-4B65-A76F-91796685DF27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4893E5CA-7DDC-4B65-A76F-91796685DF27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4893E5CA-7DDC-4B65-A76F-91796685DF27}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3C4BB039-E0FF-4726-AE0F-86FFF15BDDAC}
+	EndGlobalSection
+EndGlobal
