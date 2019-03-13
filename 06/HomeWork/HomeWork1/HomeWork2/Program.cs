@@ -16,21 +16,20 @@ namespace HomeWork2
 				Console.WriteLine("Enter an expected deposit:");
 				expectedDeposit = double.Parse(Console.ReadLine());
 				double percent = deposit * percentage;
-				if (deposit <= -1)
+				if (deposit <0)
 				{
 					throw new Exception("Inccorect! Value have to more then zero !");
 				}
-				if (percentage <= -1)
+				if (percentage <0)
 				{
 					throw new Exception("Inccorect! Value have to more then zero !");
 				}
-				if (expectedDeposit <= -1)
+				if (expectedDeposit <0)
 				{
 					throw new Exception("Inccorect! Value have to more then zero !");
 				}
 				while (true)
-				{
-					
+				{	
 					while (deposit < expectedDeposit)
 					{
 

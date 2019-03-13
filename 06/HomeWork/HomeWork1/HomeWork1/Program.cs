@@ -6,40 +6,37 @@ namespace HomeWork1
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("Enter a positive integer value:");
-			string Integer;
-			int evenNumber = 0;
-			while(true)
+			try
 			{
-				Integer = Console.ReadLine();
-				try
+				Console.WriteLine("Enter a positive integer value:");
+				string rawInput = Console.ReadLine();
+				int input = int.Parse(rawInput);
+				int evenNumber = 0;
+
+				while (true)
 				{
-					
-					for (int i = 0; i < Integer.Length; i++)
+					foreach (char digit in rawInput)
 					{
-						if ((int.Parse(Integer) % 2) == 0)
+						if ((int)digit % 2 == 0)
 						{
 							evenNumber++;
-
 						}
-						while (int.Parse(Integer) <= 0)
+						while (input <= 0)
 						{
-
 							throw new Exception("You entered a negative number !");
-
 						}
 					}
-					Console.WriteLine($"Total quantity of even numbers is: {evenNumber}");
-					break;
+				Console.WriteLine($"Total quantity of even numbers is: {evenNumber}");
+				break;
 				}
-				catch (OverflowException)
-				{
-					Console.WriteLine("Your number more then integer max value!");
-				}
-				catch(FormatException)
-				{
-					Console.WriteLine("You entered not a number!");
-				}
+			}
+			catch (OverflowException)
+			{
+				Console.WriteLine("Your number more then integer max value!");
+			}
+			catch (FormatException)
+			{
+				Console.WriteLine("You entered not a number!");
 			}
 		}
 	}
