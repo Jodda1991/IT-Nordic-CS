@@ -41,11 +41,11 @@ namespace figures
 				}
 				else if (figure<=0)
 				{
-					Console.WriteLine("You pressed a negative number or null!");
+					throw new Exception("You pressed a negative number or null!");
 				}
 				else if (figure>3)
 				{
-					Console.WriteLine("You pressed a value more then avaible!");
+					throw new Exception("You pressed a value more then avaible!");
 				}
 			}
 			catch (FormatException )
