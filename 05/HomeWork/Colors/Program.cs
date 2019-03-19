@@ -8,7 +8,7 @@ namespace Colors
 	class Program
 	{
 		[Flags]
-		enum allcolors
+		enum Colors
 		{
 			Black=1,
 			Blue=2,
@@ -22,19 +22,19 @@ namespace Colors
 		}
 		static void Main(string[] args)
 		{
-			var array = Enum.GetValues(typeof(allcolors));
-			allcolors ALL = allcolors.Black | allcolors.Blue | allcolors.Cyan
-				| allcolors.Grey | allcolors.Green | allcolors.Magenta
-				| allcolors.Red | allcolors.White | allcolors.Yellow;
-			var all = (allcolors.Black | allcolors.Blue | allcolors.Cyan
-				| allcolors.Grey | allcolors.Green | allcolors.Magenta
-				| allcolors.Red | allcolors.White | allcolors.Yellow).ToString();
+			var array = Enum.GetValues(typeof(Colors));
+			Colors allColors = Colors.Black | Colors.Blue | Colors.Cyan
+				| Colors.Grey | Colors.Green | Colors.Magenta
+				| Colors.Red | Colors.White | Colors.Yellow;
+			var all = (Colors.Black | Colors.Blue | Colors.Cyan
+				| Colors.Grey | Colors.Green | Colors.Magenta
+				| Colors.Red | Colors.White | Colors.Yellow).ToString();
 
 			Console.WriteLine(
 				"All colors: {0}",
-				string.Join(' ', Enum.GetNames(typeof(allcolors))));
+				string.Join(' ', Enum.GetNames(typeof(Colors))));
 			Console.WriteLine("Choose colors as favorite:");
-			allcolors[] favorite = new allcolors[4];
+			Colors[] favorite = new Colors[4];
 
 			for (int i = 0; i < 4; i++)
 			{
@@ -44,11 +44,11 @@ namespace Colors
 
 					object color;
 					Console.WriteLine("Choose color:");
-					if (Enum.TryParse(typeof(allcolors), Console.ReadLine(), true, out color))
+					if (Enum.TryParse(typeof(Colors), Console.ReadLine(), true, out color))
 					{
-						favorite[i] = (allcolors)color;
+						favorite[i] = (Colors)color;
 						var favor = favorite[i].ToString();
-						var otherColors = (ALL ^favorite[i]).ToString();
+						var otherColors = (allColors ^favorite[i]).ToString();
 						Console.WriteLine("You favorite color is :"+favor);
 						Console.WriteLine("Other colors are : "+otherColors);
 						break;
