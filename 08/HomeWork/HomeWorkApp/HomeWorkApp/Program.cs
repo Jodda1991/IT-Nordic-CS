@@ -8,26 +8,50 @@ namespace HomeWorkApp
 	{
 		static void Main(string[] args)
 		{
-			var signs = new Dictionary<char, char>();
-			signs.Add('(',')');
-			signs.Add('[',']');
+			var signs = new Stack<char>();
 			Console.WriteLine("Please enter signs. Possible signs are []or()");
 			string input = Console.ReadLine();
-			KeyValuePair<char, char> elements = signs.ElementAt(0);
-			char start = elements.Key;
-			char end = elements.Value;
-			KeyValuePair<char, char> elements1 = signs.ElementAt(1);
-			char start1 = elements1.Key;
-			char end1 = elements1.Value;
-			int count = 0;
+			bool correct = true;
+			
+			foreach (char sign in input)
+			{
 
-			if ((input.StartsWith(start)&&input.EndsWith(end))||(input.StartsWith(start1)&&input.EndsWith(end1)))
-			{
-				Console.WriteLine("Correct!");
+				if (sign=='(' || sign=='[')
+				{
+					signs.Push(sign);	
+				}
+
+				if (sign ==')')
+				{
+					if(signs.Count==0)
+					{
+						throw new Exception("You didnt enter a sign!");
+					}
+					if(signs.Pop()!='(')
+					{
+						correct = false;
+					}
+				}
+
+				if (sign == ']')
+				{
+					if (signs.Count == 0)
+					{
+						throw new Exception("You didnt enter a sign!");
+					}
+					if (signs.Pop() != '[')
+					{
+						correct = false;
+					}
+				}
 			}
-			else
+			if (signs.Count != 0)
 			{
-				Console.WriteLine("Inccorect!");
+				Console.WriteLine("You have sign without pair!");
+			}
+			if (correct)
+			{
+				Console.WriteLine("Correct");
 			}
 		}
 	}
