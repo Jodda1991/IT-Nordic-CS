@@ -10,6 +10,7 @@ namespace Colors
 		[Flags]
 		enum Colors
 		{
+			None=0,
 			Black=1,
 			Blue=2,
 			Cyan=4,
@@ -35,31 +36,34 @@ namespace Colors
 				string.Join(' ', Enum.GetNames(typeof(Colors))));
 			Console.WriteLine("Choose colors as favorite:");
 			Colors[] favorite = new Colors[4];
+			Colors chosenColors = Colors.None;
+			var favoriteColors=chosenColors;
+			var chosen=string.Empty;
 
 			for (int i = 0; i < 4; i++)
 			{
-
+				object color;
 				while (true)
-				{
-
-					object color;
+				{					
 					Console.WriteLine("Choose color:");
 					if (Enum.TryParse(typeof(Colors), Console.ReadLine(), true, out color))
 					{
 						favorite[i] = (Colors)color;
-						var favor = favorite[i].ToString();
-						var otherColors = (allColors ^favorite[i]).ToString();
-						Console.WriteLine("You favorite color is :"+favor);
-						Console.WriteLine("Other colors are : "+otherColors);
+						favoriteColors = favorite[i];
+						chosen = favoriteColors.ToString();						
 						break;
-
 					}
 					else
 					{
 						Console.WriteLine("Error");
 					}
 				}
+				chosenColors = chosenColors | favoriteColors;
 			}
-		}		
+			
+			var otherColors = (allColors ^ favoriteColors).ToString();	
+			Console.WriteLine("You favorite color is :" + chosenColors.ToString());
+			Console.WriteLine("Other colors are : " + otherColors);
+		}			
 	}
 }

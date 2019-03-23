@@ -5,8 +5,7 @@ namespace figures
 	class Program
 	{
 		static void Main(string[] args)
-		{
-			
+		{	
 			try
 			{
 				Console.WriteLine("Press a number of figure when 1 - circle , 2- equilateral triangle, 3- rectangle:");
@@ -39,11 +38,11 @@ namespace figures
 					Console.WriteLine("Perimeter of the rectangle is: " + (perimeter = 2 * (height + width)) +
 						"\n Square of the rectangle is : " + (square = height * width));
 				}
-				else if (figure<=0)
+				else if (figure<= 0)
 				{
 					throw new Exception("You pressed a negative number or null!");
 				}
-				else if (figure>3)
+				else if (figure > 3)
 				{
 					throw new Exception("You pressed a value more then avaible!");
 				}
