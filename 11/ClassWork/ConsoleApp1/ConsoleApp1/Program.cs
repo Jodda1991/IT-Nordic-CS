@@ -12,7 +12,7 @@ namespace ConsoleApp1
 			dog.Sex = 'M';
 			dog.DateOfBirth = DateTimeOffset.Parse("2017-02-24");
 
-			dog.WriteDescriptions(false);
+			dog.WriteDescriptions();
 		}
 	}
 }
