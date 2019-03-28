@@ -9,7 +9,7 @@ namespace HomeWork10
 		public string Name { get; set; }
 		public int  Age  { get; set; }
 
-	public int AgesInFourYears
+	public int AgeInFourYears
 		{
 			get
 			{
@@ -18,7 +18,7 @@ namespace HomeWork10
 		}
 		public string Output
 		{
-			get{ return $"Name: {Name} ,in 4 years: {AgesInFourYears}";}
+			get{ return $"Name: {Name} ,in 4 years: {AgeInFourYears}";}
 		}
 	}
 }
