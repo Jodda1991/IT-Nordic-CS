@@ -15,6 +15,8 @@ namespace ConsoleApp1
 			reminder1.AlarmDate = DateTimeOffset.Parse("2019-03-27 19:40");
 			reminder1.AlarmMessage = "Don't forget potatoes in the oven!";
 			reminder1.WriteProperties();
+
+			Console.ReadLine();
 		}
 	}
 }

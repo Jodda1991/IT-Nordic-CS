@@ -10,25 +10,17 @@ namespace ConsoleApp1
 
 		public string AlarmMessage { get; set; }
 
-		public int TimeToAlarm
+		public TimeSpan TimeToAlarm
 		{
-			get { TimeSpan timeForSleep = AlarmDate -DateTimeOffset.UtcNow;
-				return Convert.ToInt32(timeForSleep.TotalMinutes); }
+			get {return AlarmDate.Subtract(DateTimeOffset.UtcNow);}
 		}
 
 		public bool IsOutdated
 		{
 			get {
-				bool youHaveATime=true;
-				if (TimeToAlarm>=0)
-				{
-					youHaveATime = true;
-				}
-				else if(TimeToAlarm<0)
-				{
-					youHaveATime = false;
-				}
-				return youHaveATime;
+				return TimeToAlarm >= TimeSpan.Zero
+				   ? true
+				   : false;
 			}
 		}
 
@@ -44,13 +36,7 @@ namespace ConsoleApp1
 				inTimeOrLate = "you have no time!";
 			}
 
-			Console.WriteLine($"Your alarm was set on {AlarmDate}\n with message: {AlarmMessage}\n and {inTimeOrLate} : ({TimeToAlarm} minutes)");
+			Console.WriteLine($"Your alarm was set on {AlarmDate}\n with message: {AlarmMessage}\n and {inTimeOrLate} ");
 		}
-
-
-
-
-
-
 	}
 }

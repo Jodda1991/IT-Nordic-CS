@@ -34,25 +34,21 @@ namespace Colors
 
 			for (int i = 0; i < 4; i++)
 			{
-				object color;
-				while (true)
-				{					
-					Console.WriteLine("Choose colors as favorite:");
-					if (Enum.TryParse(typeof(Colors), Console.ReadLine(), true, out color))
-					{
-						chosenColors = chosenColors|(Colors)color;
-						chosen = chosenColors.ToString();						
-						break;
-					}
-					else
-					{
-						Console.WriteLine("Error");
-					}
+				Colors color;									
+				Console.WriteLine("Choose colors as favorite(you need to choose 4 colors , you can repeat the colors):");
+				if (Enum.TryParse<Colors>( Console.ReadLine(), true, out color))
+				{
+					chosenColors = chosenColors|color;
+					chosen = chosenColors.ToString();												
 				}
+				else
+				{
+					Console.WriteLine("Error");
+				}				
 			}
 			
 			var otherColors = (allColors^chosenColors).ToString();	
-			Console.WriteLine("You favorite colors is :" + chosen);
+			Console.WriteLine("Your favorite colors are :" + chosen);
 			Console.WriteLine("Other colors are : " + otherColors);
 		}			
 	}
