@@ -31,11 +31,12 @@ namespace Colors
 				string.Join(' ', Enum.GetNames(typeof(Colors))));
 			Colors chosenColors = new Colors();
 			var chosen=string.Empty;
+			Console.WriteLine("Choose colors as favorite(you need to choose 4 colors , you can repeat the color)");
 
 			for (int i = 0; i < 4; i++)
 			{
-				Colors color;									
-				Console.WriteLine("Choose colors as favorite(you need to choose 4 colors , you can repeat the colors):");
+				Colors color;				
+				Console.WriteLine("Enter the color:");
 				if (Enum.TryParse<Colors>( Console.ReadLine(), true, out color))
 				{
 					chosenColors = chosenColors|color;
@@ -45,8 +46,7 @@ namespace Colors
 				{
 					Console.WriteLine("Error");
 				}				
-			}
-			
+			}			
 			var otherColors = (allColors^chosenColors).ToString();	
 			Console.WriteLine("Your favorite colors are :" + chosen);
 			Console.WriteLine("Other colors are : " + otherColors);
