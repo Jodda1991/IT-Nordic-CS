@@ -32,7 +32,11 @@ namespace ConsoleApp1
 
 		public virtual void WriteProperties()
 		{
-			Console.WriteLine($"{ GetType().Name}\n Your alarm was set on { AlarmDate.ToString("MM/dd/yyyy HH:mm:ss")}\n with message: {AlarmMessage}\n time before alarm you have: {TimeToAlarm.ToString()}\n {nameof(IsOutdated)}:{IsOutdated}");
+			Console.WriteLine($"{ GetType().Name}\n Your alarm was set on " +
+				$"{ AlarmDate.ToString("MM/dd/yyyy HH:mm:ss")}" +
+				$"\n with message: {AlarmMessage}" +
+				$"\n time before alarm you have: {TimeToAlarm.ToString()}" +
+				$"\n {nameof(IsOutdated)}:{IsOutdated}");
 		}
 	}
 }
