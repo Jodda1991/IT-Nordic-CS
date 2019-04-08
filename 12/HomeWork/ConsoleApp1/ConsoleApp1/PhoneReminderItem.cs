@@ -16,10 +16,8 @@ namespace ConsoleApp1
 
 		public override void WriteProperties ()
 		{
-			Console.WriteLine($"{GetType().Name}" +
-				$"\n Your alarm was set on {AlarmDate.ToString("MM/dd/yyyy HH:mm:ss")}" +
-				$"\n with message: {AlarmMessage}" +
-				$"\n phone number: {PhoneNumber} ");
+			base.WriteProperties();
+			Console.WriteLine($" phone number: {PhoneNumber} ");
 		}
 	}
 }
