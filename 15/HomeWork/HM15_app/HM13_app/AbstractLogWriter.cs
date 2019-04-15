@@ -22,7 +22,7 @@ namespace HM13_app
 		{
 			LogRecord(message, LogTypes.Warning);
 		}
-
+		///
 		protected string GetLogRecord(string message, LogTypes logRecordType)
 		{
 			return string.Format(

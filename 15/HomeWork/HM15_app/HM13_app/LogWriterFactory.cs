@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace HM13_app
-{
+{//
 	public class LogWriterFactory
 	{
 		private static LogWriterFactory instance;

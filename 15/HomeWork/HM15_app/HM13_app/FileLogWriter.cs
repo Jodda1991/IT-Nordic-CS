@@ -4,7 +4,7 @@ using System.IO;
 using System.Text;
 
 namespace HM13_app
-{
+{//
 	class FileLogWriter: AbstractLogWriter, ILogWriter, IDisposable
 	{
 		private StreamWriter _logFileWriter;

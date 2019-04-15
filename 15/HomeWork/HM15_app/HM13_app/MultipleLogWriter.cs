@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace HM13_app
-{
+{//
 	class MultipleLogWriter:AbstractLogWriter,ILogWriter,IDisposable
 	{
 		private IEnumerable<ILogWriter> _logWriters;
