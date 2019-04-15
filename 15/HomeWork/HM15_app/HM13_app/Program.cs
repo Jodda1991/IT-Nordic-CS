@@ -17,7 +17,6 @@ namespace HM13_app
 			multipleLogWriter.LogWarning("Test warning messege 0216637");
 			multipleLogWriter.LogError("Test error messege 1184225");
 
-			Console.ReadLine();
 		}
 	}
 }
