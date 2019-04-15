@@ -9,13 +9,13 @@ namespace HM13_app
 		{
 			LogWriterFactory factory = LogWriterFactory.GetInstance();
 
-			var consoleLogwriter = (ConsoleLogWriter)factory.GetLogWriter<ConsoleLogWriter>();
-			var fileLogwriter = (FileLogWriter)factory.GetLogWriter<FileLogWriter>();
-			var multipleLogwriter = factory.GetLogWriter<MultipleLogWriter>(new List<ILogWriter> { consoleLogwriter, fileLogwriter });
+			var consoleLogWriter = (ConsoleLogWriter)factory.GetLogWriter<ConsoleLogWriter>();
+			var fileLogWriter = (FileLogWriter)factory.GetLogWriter<FileLogWriter>();
+			var multipleLogWriter = factory.GetLogWriter<MultipleLogWriter>(new List<ILogWriter> { consoleLogWriter, fileLogWriter });
 
-			multipleLogwriter.LogInfo("Test information messege 0017890");
-			multipleLogwriter.LogWarning("Test warning messege 0216637");
-			multipleLogwriter.LogError("Test error messege 1184225");
+			multipleLogWriter.LogInfo("Test information messege 0017890");
+			multipleLogWriter.LogWarning("Test warning messege 0216637");
+			multipleLogWriter.LogError("Test error messege 1184225");
 
 			Console.ReadLine();
 		}
