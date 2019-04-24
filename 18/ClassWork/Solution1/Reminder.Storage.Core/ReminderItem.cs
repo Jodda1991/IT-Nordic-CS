@@ -8,9 +8,9 @@ namespace Reminder.Storage.Core
 
 		public DateTimeOffset Date { get; set; }
 
-		string Message { get; set; }
+		public string Message { get; set; }
 
-		string ContactId { get; set; }
+		public string ContactId { get; set; }
 
 		public ReminderItem(Guid id , DateTimeOffset date, string message , string contactId)
 		{

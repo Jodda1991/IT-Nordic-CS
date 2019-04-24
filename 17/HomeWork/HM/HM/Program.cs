@@ -7,6 +7,7 @@ namespace HM
 		static void Main(string[] args)
 		{
 			
+			Console.ReadLine();
 		}
 	}
 }

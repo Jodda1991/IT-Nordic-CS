@@ -16,7 +16,9 @@ namespace Reminder.Storage.InMemory
 
 		public void Add(ReminderItem reminderItem)
 		{
-			/// TODO: add custom exception throwing if already exists
+			if(_storage.ContainsKey(reminderItem.Id))
+				throw new Exception ("Key is already exist!");
+			else
 			_storage.Add(reminderItem.Id, reminderItem);
 		}
 
@@ -29,12 +31,15 @@ namespace Reminder.Storage.InMemory
 
 		public List<ReminderItem> GetList(IEnumerable<ReminderItemStatus> status, int count, int startPosition)
 		{
-			throw new NotImplementedException();
+			var list = new List<ReminderItem>();
+
 		}
 
 		public void Update(ReminderItem reminderItem)
 		{
-			/// TODO:add custom exception throwing if not found
+			if (_storage.ContainsKey(reminderItem.Id) == false)
+				throw new KeyNotFoundException("Key isn't found!");
+			else
 			_storage[reminderItem.Id] = reminderItem;
 		}
 	}

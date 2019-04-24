@@ -72,5 +72,34 @@ namespace Reminder.Storage.Core.Test
 			//Checking
 			Assert.IsTrue(actual < TimeSpan.Zero);
 		}
+
+		[TestMethod]
+		public void Constructor_Validly_Fills_Message_Propetrty()
+		{
+			//Preparing 
+			string expected = "5:00 rise and grind!";
+			//Running
+			var reminderItem = new ReminderItem(
+				Guid.Empty,
+				DateTimeOffset.MinValue,
+				expected,
+				null);
+			//Checking
+			Assert.AreEqual(expected, reminderItem.Message);
+		}
+
+		public void Constructor_Validly_Fills_ContactID_Propetrty()
+		{
+			//Preparing 
+			string expected = "Polar Bear#3244";
+			//Running
+			var reminderItem = new ReminderItem(
+				Guid.Empty,
+				DateTimeOffset.MinValue,
+				null,
+				expected);
+			//Checking
+			Assert.AreEqual(expected, reminderItem.ContactId);
+		}
 	}
 }
