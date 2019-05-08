@@ -34,7 +34,7 @@ namespace CW_22WB1.Controllers
 				});
 				*/
 		}
-		[HttpGet("{id}")]
+		[HttpGet("{id}",Name = "GetCity")]
 		public IActionResult GetCity(int id)
 		{
 			var citiesDataStore = CitiesDataStore.GetInstance();
@@ -68,7 +68,9 @@ namespace CW_22WB1.Controllers
 			};
 			citiesDataStore.Cities.Add(newCity);
 
-			return Ok();
+			return CreatedAtRoute(
+				"GetCity",new {id = newCityId },
+				newCity);
 		}
 	}
 }
