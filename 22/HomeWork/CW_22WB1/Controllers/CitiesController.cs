@@ -90,13 +90,10 @@ namespace CW_22WB1.Controllers
 			{
 				NotFound();
 			}
-			if (updatedCity != null)
-			{
-				updatedCity.Name = updatedCity.Name;
-				updatedCity.Description = updatedCity.Description;
-				updatedCity.NumberOfPointsOfInterest = updatedCity.NumberOfPointsOfInterest;
 
-			}
+			updatedCity.Name = updatedCity.Name;
+			updatedCity.Description = updatedCity.Description;
+			updatedCity.NumberOfPointsOfInterest = updatedCity.NumberOfPointsOfInterest;
 
 			return Ok(city);
 
