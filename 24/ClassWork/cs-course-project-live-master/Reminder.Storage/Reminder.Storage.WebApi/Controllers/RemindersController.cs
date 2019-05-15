@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Reminder.Storage.Core;
-using Reminder.Storage.WebApi.Models;
+using Reminder.Storage.WebApi.Core;
 
 namespace Reminder.Storage.WebApi.Controllers
 {
@@ -34,7 +34,7 @@ namespace Reminder.Storage.WebApi.Controllers
 
 	
 		[HttpPost]
-		public IActionResult CreateReminder([FromBody] ReminderItemGetModel reminder )
+		public IActionResult CreateReminder([FromBody] ReminderItemCreateModel reminder )
 		{
 			if (reminder == null||!ModelState.IsValid)
 			{
@@ -50,5 +50,15 @@ namespace Reminder.Storage.WebApi.Controllers
 				new ReminderItemGetModel(reminderItem));
 		}
 
+		[HttpGet]
+		public IActionResult GetReminders([FromQuery(Name ="[filter]status")]ReminderItemStatus status)
+		{
+			var reminderItemGetModel = _reminderStorage
+				.Get(status)
+				.Select(x => new ReminderItemGetModel(x))
+				.ToList();
+
+			return Ok(reminderItemGetModel);
+		}
 	}
 }

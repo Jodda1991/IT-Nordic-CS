@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Reminder.Storage.WebApi.Models
+namespace Reminder.Storage.WebApi.Core
 {
 	public class ReminderItemCreateModel
 	{
@@ -39,7 +39,6 @@ namespace Reminder.Storage.WebApi.Models
 
 		public ReminderItemCreateModel(ReminderItem reminderItem)
 		{
-
 			Date = reminderItem.Date;
 			ContactId = reminderItem.ContactId;
 			Message = reminderItem.Message;

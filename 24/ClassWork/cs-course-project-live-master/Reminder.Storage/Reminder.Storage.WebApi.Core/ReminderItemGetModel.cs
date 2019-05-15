@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Reminder.Storage.WebApi.Models
+namespace Reminder.Storage.WebApi.Core
 {
 	public class ReminderItemGetModel
 	{
