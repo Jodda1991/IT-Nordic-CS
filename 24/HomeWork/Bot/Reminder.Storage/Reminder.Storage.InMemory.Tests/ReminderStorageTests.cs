@@ -12,7 +12,7 @@ namespace Reminder.Storage.InMemory.Tests
 		[TestMethod]
 		public void Add_Method_Adds_Single_Reminder()
 		{
-			var reminder = new ReminderItem
+			var reminder = new ReminderItemRestricted
 			{
 				Date = DateTimeOffset.UtcNow.Add(TimeSpan.FromMinutes(1)),
 				Message = "Test",

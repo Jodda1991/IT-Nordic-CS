@@ -37,7 +37,7 @@ namespace Reminder.Storage.WebApi.Core
 
 		}
 
-		public ReminderItemCreateModel(ReminderItem reminderItem)
+		public ReminderItemCreateModel(ReminderItemRestricted reminderItem)
 		{
 			Date = reminderItem.Date;
 			ContactId = reminderItem.ContactId;
@@ -45,9 +45,9 @@ namespace Reminder.Storage.WebApi.Core
 			Status = reminderItem.Status;
 		}
 
-		public ReminderItem ToReminderItem()
+		public ReminderItemRestricted ToReminderItem()
 		{
-			return new ReminderItem
+			return new ReminderItemRestricted
 			{
 
 				Date = Date,

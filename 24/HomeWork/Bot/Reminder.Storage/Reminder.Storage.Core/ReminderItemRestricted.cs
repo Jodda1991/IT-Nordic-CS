@@ -5,12 +5,8 @@ namespace Reminder.Storage.Core
 	/// <summary>
 	/// The single reminder item.
 	/// </summary>
-	public class ReminderItem
+	public class ReminderItemRestricted
 	{
-		/// <summary>
-		/// Gets the identifier.
-		/// </summary>
-		public Guid Id { get; set; } = Guid.NewGuid();
 
 		/// <summary>
 		/// Gets or sets the date and time the reminder item scheduled for sending.
@@ -38,6 +34,4 @@ namespace Reminder.Storage.Core
 		public bool IsTimeToSend => Date.UtcDateTime < DateTimeOffset.UtcNow;
 	}
 }
-
-
 

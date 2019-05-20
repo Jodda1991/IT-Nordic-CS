@@ -16,7 +16,7 @@ namespace Reminder.Storage.Core
 		/// <summary>
 		/// Adds a new item to the storage.
 		/// </summary>
-		void Add(ReminderItem reminder);
+		Guid Add(ReminderItemRestricted reminder);
 
 		/// <summary>
 		/// Removes the item from the storage by its ID.

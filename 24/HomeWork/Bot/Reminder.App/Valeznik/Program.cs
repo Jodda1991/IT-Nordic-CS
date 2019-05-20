@@ -9,16 +9,22 @@ namespace Valeznik
 		static void Main(string[] args)
 		{
 			var client = new ReminderStorageWebApiClient("https://localhost:5001");
-			var reminderItem = new ReminderItem
+			var reminderItem = new ReminderItemRestricted
 			{
 				ContactId = "TestContactId",
 				Date = DateTimeOffset.Now,
 				Message = "Test"
 			};
-			client.Add(reminderItem);
+			Guid id = client.Add(reminderItem);
 
-			Console.WriteLine("f");
+			Console.WriteLine("Adding done");
 
+			var reminderItemFromStorage = client.Get(id);
+			Console.WriteLine($"{reminderItemFromStorage.Id}\n" +
+				$"{reminderItemFromStorage.ContactId}\n" +
+				$"{reminderItemFromStorage.Date}\n" +
+				$"{reminderItemFromStorage.Message}\n");
+			
 		}
 	}
 }

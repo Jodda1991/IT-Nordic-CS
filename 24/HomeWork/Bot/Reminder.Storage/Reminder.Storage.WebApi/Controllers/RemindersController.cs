@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Reminder.Storage.Core;
 using Reminder.Storage.WebApi.Core;
@@ -42,12 +43,12 @@ namespace Reminder.Storage.WebApi.Controllers
 			}
 
 			var reminderItem = reminder.ToReminderItem();
-			_reminderStorage.Add(reminderItem);
+			Guid id = _reminderStorage.Add(reminderItem);
 
 			return CreatedAtRoute(
 				"GetReminder",
-				new { id = reminderItem.Id },
-				new ReminderItemGetModel(reminderItem));
+				new { id },
+				new ReminderItemGetModel(id,reminderItem));
 		}
 
 		[HttpGet]
@@ -59,6 +60,35 @@ namespace Reminder.Storage.WebApi.Controllers
 				.ToList();
 
 			return Ok(reminderItemGetModel);
+		}
+
+		[HttpPatch]
+		public IActionResult UpdateReminderStatus(Guid id,
+			[FromBody] JsonPatchDocument<ReminderItemsUpdateModel> patchDocument)
+		{
+			
+
+			var reminderItem = _reminderStorage.Get(id);
+
+			if(reminderItem == null)
+			{
+				return BadRequest();
+			}
+
+			if (reminderItem == null || !ModelState.IsValid)
+			{
+				return BadRequest(ModelState);
+			}
+			var reminderItemModelToPatch = new ReminderItemUpdateModel
+			{
+				Status = reminderItem.Status
+			};
+
+			patchDocument.ApplyTo(reminderItemModelToPatch);
+
+			_reminderStorage.UpdateStatus(
+				id,
+				reminderItemModelToPatch.PatchDocument);
 		}
 	}
 }

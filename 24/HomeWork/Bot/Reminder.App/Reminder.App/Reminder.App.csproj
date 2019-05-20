@@ -13,10 +13,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Reminder.Storage\Reminder.Storage.WebApi.Client\Reminder.Storage.WebApi.Client.csproj" />
     <ProjectReference Include="..\Reminder.Domain\Reminder.Domain.csproj" />
     <ProjectReference Include="..\Reminder.Receiver.Telegram\Reminder.Receiver.Telegram.csproj" />
     <ProjectReference Include="..\Reminder.Sender.Telegram\Reminder.Sender.Telegram.csproj" />
-    <ProjectReference Include="..\Reminder.Storage.InMemory\Reminder.Storage.InMemory.csproj" />
   </ItemGroup>
 
   <ItemGroup>
