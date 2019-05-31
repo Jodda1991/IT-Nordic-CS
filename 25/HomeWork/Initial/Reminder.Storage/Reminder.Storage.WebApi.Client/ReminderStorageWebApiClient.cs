@@ -1,15 +1,13 @@
-﻿using Microsoft.AspNetCore.JsonPatch;
-using Microsoft.AspNetCore.JsonPatch.Operations;
-using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using Reminder.Storage.Core;
-using Reminder.Storage.WebApi.Core;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
+using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.AspNetCore.JsonPatch.Operations;
+using Newtonsoft.Json;
+using Reminder.Storage.Core;
+using Reminder.Storage.WebApi.Core;
 
 namespace Reminder.Storage.WebApi.Client
 {
@@ -24,15 +22,13 @@ namespace Reminder.Storage.WebApi.Client
 			_httpClient = HttpClientFactory.Create();
 		}
 
-		public int Count => throw new NotImplementedException();
-
 		public Guid Add(ReminderItemRestricted reminder)
 		{
 			var result = CallWebApi("POST",
 				"/api/reminders",
 				JsonConvert.SerializeObject(new ReminderItemCreateModel(reminder)));
 
-			if(result.StatusCode != System.Net.HttpStatusCode.Created)
+			if (result.StatusCode != System.Net.HttpStatusCode.Created)
 			{
 				throw CreateException(result);
 			}
@@ -51,7 +47,7 @@ namespace Reminder.Storage.WebApi.Client
 
 			string content = result.Content.ReadAsStringAsync().Result;
 
-			if (result.StatusCode==System.Net.HttpStatusCode.NotFound)
+			if (result.StatusCode == System.Net.HttpStatusCode.NotFound)
 			{
 				return null;
 			}
@@ -78,7 +74,7 @@ namespace Reminder.Storage.WebApi.Client
 			}
 
 			return JsonConvert.DeserializeObject<List<ReminderItemGetModel>>(content)
-				.Select(x=>x.ToReminderItem())
+				.Select(x => x.ToReminderItem())
 				.ToList();
 		}
 
@@ -93,7 +89,7 @@ namespace Reminder.Storage.WebApi.Client
 						path = "/status",
 						value = (int)status
 					}
-				
+
 				},
 			new Newtonsoft.Json.Serialization.DefaultContractResolver());
 
@@ -141,13 +137,13 @@ namespace Reminder.Storage.WebApi.Client
 		private HttpResponseMessage CallWebApi(
 			string method,
 			string relativeUrl,
-			string content=null)
+			string content = null)
 		{
 			var request = new HttpRequestMessage(new HttpMethod(method),
 				_baseWebApiUrl + relativeUrl);
 
 			request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-			if(method == "POST"||method =="PATCH"||method =="PUT")
+			if (method == "POST" || method == "PATCH" || method == "PUT")
 			{
 				request.Content = new StringContent(
 					content,
@@ -157,11 +153,11 @@ namespace Reminder.Storage.WebApi.Client
 			return _httpClient.SendAsync(request).Result;
 		}
 
-		private Exception CreateException (HttpResponseMessage httpResponseMessage)
+		private Exception CreateException(HttpResponseMessage httpResponseMessage)
 		{
 			throw new Exception($"Error: {httpResponseMessage.StatusCode}, " +
 					$"Content: {httpResponseMessage.Content.ReadAsStringAsync().Result}");
 		}
-		
+
 	}
 }

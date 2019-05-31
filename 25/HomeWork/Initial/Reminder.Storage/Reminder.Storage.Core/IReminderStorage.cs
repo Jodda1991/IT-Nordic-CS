@@ -11,12 +11,12 @@ namespace Reminder.Storage.Core
 		/// <summary>
 		/// Gets the number of the items in the storage.
 		/// </summary>
-		int Count { get; }
+		//int Count { get; }
 
 		/// <summary>
 		/// Adds a new item to the storage.
 		/// </summary>
-		Guid Add(ReminderItemRestricted reminder);
+		void Add(ReminderItem reminder);
 
 		/// <summary>
 		/// Removes the item from the storage by its ID.
