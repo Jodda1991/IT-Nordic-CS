@@ -181,5 +181,27 @@ namespace Reminder.Storage.SqlServer.ADO.Tests
 			Assert.IsNotNull(actual);
 			Assert.AreEqual(5, actual.Count);
 		}
-	}
+
+        [TestMethod]
+        public void UpdateStatus_Method_With_Ids_Collection_Updates_Corresponded()
+        {
+            var storage = new SqlReminderStorage(_connectionString);
+
+            var ids = new List<Guid>
+            {
+                new Guid("00000000-0000-0000-0000-111111111111"),
+                new Guid("00000000-0000-0000-0000-222222222222"),
+                new Guid("00000000-0000-0000-0000-333333333333"),
+            };
+
+        storage.UpdateStatus(ids, ReminderItemStatus.Failed);
+
+			var actual = storage.Get(ReminderItemStatus.Failed);
+  
+			Assert.IsTrue(actual.Select(x=>x.Id).Contains(ids[0]));
+            Assert.IsTrue(actual.Select(x =>x.Id).Contains(ids[1]));
+            Assert.IsTrue(actual.Select(x =>x.Id).Contains(ids[2]));
+
+        }
+    }
 }
