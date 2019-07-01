@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Reminder.Storage.SqlServer.EF.Context
 {
-    class ReminderItemDto
+    public class ReminderItemDto
     {
         public Guid Id { get; set; }
 

@@ -12,7 +12,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using Reminder.Storage.Core;
-using Reminder.Storage.Sql;
+using Reminder.Storage.SqlServer.EF;
 
 namespace Reminder.Storage.WebApi
 {
@@ -41,13 +41,10 @@ namespace Reminder.Storage.WebApi
 					});
 			});
 
-			string connectionString = new ConfigurationBuilder()
-				.SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-				.AddJsonFile("appsettings.json")
-				.Build()
+			string connectionString =  Configuration
 				.GetConnectionString("DefaultConnection");
 
-			services.AddSingleton<IReminderStorage>(new SqlReminderStorage(connectionString));
+			services.AddSingleton<IReminderStorage>(new EntityFrameworkReminderStorage(connectionString));
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

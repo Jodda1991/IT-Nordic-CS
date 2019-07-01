@@ -65,29 +65,91 @@ namespace Reminder.Storage.SqlServer.EF
             using (var context = new ReminderStorageContext(_builder.Options))
             {
                 return context.ReminderItems.FirstOrDefault(ri=>ri.Id==id)
-                    ?.ToReminderItem();
-                
+                    ?.ToReminderItem();   
             }
         }
 
         public List<ReminderItem> Get(int count = 0, int startPostion = 0)
         {
-            throw new NotImplementedException();
+            using (var context = new ReminderStorageContext(_builder.Options))
+            {
+                if (count == 0 && startPostion == 0)
+                {
+                    return context.ReminderItems
+                        .Select(r => r.ToReminderItem())
+                        .ToList();
+                }
+                if(count==0)
+                {
+                    return context.ReminderItems
+                       .OrderBy(ri => ri.Id)
+                       .Skip(startPostion)
+                       .Select(r => r.ToReminderItem())
+                       .ToList();
+                }
+                return context.ReminderItems
+                       .OrderBy(ri => ri.Id)
+                       .Skip(startPostion)
+                       .Take(count)
+                       .Select(r => r.ToReminderItem())
+                       .ToList();
+            }
         }
 
         public List<ReminderItem> Get(ReminderItemStatus status, int count, int startPostion)
         {
-            throw new NotImplementedException();
+            using (var context = new ReminderStorageContext(_builder.Options))
+            {
+                if (count == 0 && startPostion == 0)
+                {
+                    return context.ReminderItems
+                        .Where(ri => ri.Status == status)
+                        .Select(r => r.ToReminderItem())
+                        .ToList();
+                }
+                if (count == 0)
+                {
+                    return context.ReminderItems
+                       .Where(ri => ri.Status == status)
+                       .OrderBy(ri => ri.Id)
+                       .Skip(startPostion)
+                       .Select(r => r.ToReminderItem())
+                       .ToList();
+                }
+                return context.ReminderItems
+                       .Where(ri => ri.Status == status)
+                       .OrderBy(ri => ri.Id)
+                       .Skip(startPostion)
+                       .Take(count)
+                       .Select(r => r.ToReminderItem())
+                       .ToList();
+            }
         }
 
         public List<ReminderItem> Get(ReminderItemStatus status)
         {
-            throw new NotImplementedException();
+            using (var context = new ReminderStorageContext(_builder.Options))
+            {
+                 return context.ReminderItems.Where(ri => ri.Status==status)
+                    .Select(r=>r.ToReminderItem())
+                    .ToList();
+            }
         }
 
         public bool Remove(Guid id)
         {
-            throw new NotImplementedException();
+            using (var context = new ReminderStorageContext(_builder.Options))
+            {
+                var dto = context.ReminderItems.FirstOrDefault(r => r.Id == id);
+
+                if(dto==null)
+                {
+                    return false;
+                }
+                context.ReminderItems.Remove(dto);
+                context.SaveChanges();
+                return true;
+            }
         }
 
         public void UpdateStatus(IEnumerable<Guid> ids, ReminderItemStatus status)
